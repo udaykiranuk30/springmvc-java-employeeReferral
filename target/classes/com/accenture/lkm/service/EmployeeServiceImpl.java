@@ -18,7 +18,7 @@ public class EmployeeServiceImpl implements EmpService{
 
 	@Override
 	public void addEmp(EmployeeBean bean) throws Exception {
-		edao.addEmp(bean);
+		//TO-DO - Invoke the appropriate DAO method here
 		
 	}
 

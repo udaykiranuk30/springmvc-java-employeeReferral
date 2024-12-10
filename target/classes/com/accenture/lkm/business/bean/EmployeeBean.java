@@ -9,18 +9,18 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class EmployeeBean {
+	// TO-DO - Add the validation for the following fields
+
+	/*
+	empName,empDor,candName,candSkill,candLevel should not be empty
+	Length of the employee name should be between 3 and 7
+	empDor date format should be "dd-MMM-yyyy"
+	*/
 	private int empId;
-	@NotEmpty
-	@Size(min=3, max=7, message="Employee name should be between 3 and 7")
 	private String empName;
-	@NotNull(message="empDor should not be empty")
-	@DateTimeFormat(pattern = "dd-MMM-yyyy")
 	private Date empDor;
-	@NotEmpty
 	private String candName;
-	@NotEmpty
 	private String candSkill;
-	@NotEmpty
 	private String candLevel;
 	private Double referralBonus;
 	public int getEmpId() {
