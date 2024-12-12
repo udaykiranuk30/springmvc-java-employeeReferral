@@ -1,30 +1,38 @@
 package com.accenture.lkm.business.bean;
-
+ 
 import java.util.Date;
-
+ 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
+ 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
-
+ 
 public class EmployeeBean {
 	// TO-DO - Add the validation for the following fields
-
+ 
 	/*
 	empName,empDor,candName,candSkill,candLevel should not be empty
 	Length of the employee name should be between 3 and 7
 	empDor date format should be "dd-MMM-yyyy"
 	*/
+	// Final Changes Made
 	private int empId;
+	@NotEmpty(message="This is a required field")
+	@Size(min=3,max=7,message="Employee empName should be between 3 and 7 characters long")
 	private String empName;
+	@NotNull(message="This is a required field")
+	@DateTimeFormat(pattern="dd-MMM-yyyy")
 	private Date empDor;
+	@NotEmpty(message="This is a required field")
 	private String candName;
+	@NotEmpty(message="This is a required field")
 	private String candSkill;
+	@NotEmpty(message="This is a required field")
 	private String candLevel;
 	private Double referralBonus;
 	public int getEmpId() {
-		return empId;
+		return empId;   
 	}
 	public void setEmpId(int empId) {
 		this.empId = empId;

@@ -30,8 +30,14 @@ public class EmpDaoWrapper {
 	
 	public void addEmp(EmployeeBean bean) throws Exception {
 		double bonus = checkLevel(bean);
-		//TO-DO - Include statements to save the data into database
-
+		if(bonus==0) {
+			throw new Exception("Skill-Level mismatch Exception!");
+		}
+		else {
+			EmployeeEntity entity = convertBeanToEntity(bean);
+			entity.setReferralBonus(bonus);
+			employeeDAO.save(entity);
+		}
 	}
 
 	public double checkLevel(EmployeeBean bean) {
